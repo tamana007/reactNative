@@ -1,7 +1,7 @@
 import { StatusBar as ExpoStatusBar } from "expo-status-bar";
-import { StyleSheet, Text, SafeAreaView, StatusBar } from "react-native";
+import { StyleSheet, Text, SafeAreaView, StatusBar, View } from "react-native";
 import SearchInput from "./src/components/SearchInput";
-import ListItem from "./src/components/ListItem";
+import RestuarantInfoCard from "./src/components/RestuarantInfoCard";
 
 export default function App() {
   console.log("statusbar height goes here", StatusBar.currentHeight);
@@ -9,9 +9,10 @@ export default function App() {
   return (
     <>
       <SafeAreaView style={styles.container}>
-        <Text>seach:</Text>
-        <SearchInput />
-        <ListItem />
+        <View style={styles.SearchInput}>
+          <SearchInput />
+        </View>
+        <RestuarantInfoCard />
       </SafeAreaView>
       <ExpoStatusBar />
     </>
@@ -25,5 +26,11 @@ const styles = StyleSheet.create({
     // paddingTop: Platform.OS=='android' ?20:0
     //use this:
     marginTop: StatusBar.currentHeight,
+  },
+  searchInput: {
+    display: "flex",
+    flexDirection: "row",
+
+    padding: 25,
   },
 });
