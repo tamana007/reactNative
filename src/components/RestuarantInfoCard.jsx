@@ -21,14 +21,19 @@ const RestuarantInfoCard = ({ restuarant = {} }) => {
   `;
   const ViewContainer=styled(ViewComp)`
 
-background-color: blue;
-    padding: 16px;
-    margin-top:10px;
+/* background-color: ${(props) => props.theme.colors.brand.primary}; */
 
-    flex: 1;
-    height: "100%";
+background-color: ${(props) => props.theme.colors.brand.primary}; 
+  padding: 16px;
+  margin-top: 10px;
+
+  flex: 1;
+  height: 100%;
+`;
+
   
-  `;
+
+  
 
 
   const {

@@ -3,30 +3,37 @@ import { StyleSheet, Text, SafeAreaView, StatusBar, View } from "react-native";
 import SearchInput from "./src/components/SearchInput";
 import RestuarantInfoCard from "./src/components/RestuarantInfoCard";
 import styled from "styled-components/native";
+import { ThemeProvider } from 'styled-components/native';
+import {theme} from './src/infurstructure/Thems'
 
 export default function App() {
   console.log("statusbar height goes here", StatusBar.currentHeight);
 
 const SafeAreaViewContiner=styled(SafeAreaView)`
 flex:1;
-margin-top:${StatusBar.currentHeight};
+${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px`};
 
 `;
 const ViewContainer=styled(View)`
     display: "flex";
     flex-direction: "row";
-
+ 
 `
 ;
   return (
     <>
-      <SafeAreaViewContiner>
+    <ThemeProvider theme={theme}>
+
+    <SafeAreaViewContiner>
         <View >
           <SearchInput />
         </View>
         <RestuarantInfoCard />
       </SafeAreaViewContiner>
+    </ThemeProvider>
+
       <ExpoStatusBar />
+   
     </>
   );
 }
